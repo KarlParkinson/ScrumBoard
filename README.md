@@ -1,4 +1,4 @@
 ScrumBoard
 ==========
 
-A simple web based scrum board I build to teach myself Rails.
+A simple web based scrum board I built to teach myself Rails.
