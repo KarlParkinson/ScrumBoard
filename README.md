@@ -1,3 +1,3 @@
 ScrumBoard
 
-A simple web based scrum board I'm building to teach myself Rails.
+A simple web based scrum board I'm building to teach myself Rails, HTML, and CSS.
