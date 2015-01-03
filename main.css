@@ -54,8 +54,8 @@ body {
 }
 
 .cover-container {
-    margin-right: auto;
-    margin-left: auto;
+   margin-right: auto;
+   margin-left: auto;
 }
 
 .inner {
@@ -104,6 +104,10 @@ body {
     text-decoration: none;
     color: #fff;
     border-bottom-color: #fff;
+}
+
+.masthead-nav li a .masthead-brand {
+    margin-top: 0px;
 }
 
 @media (min-width: 768px) {
@@ -173,4 +177,26 @@ body {
     .cover-container {
 	width: 700px;
     }
+}
+
+.flex-container {
+    padding: 30px;
+    margin: 0
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: row;
+}
+
+.column {
+    padding: 5px;
+    margin: 5px;
+    flex: 1;
+    background: #f2f2f2;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
 }
