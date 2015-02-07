@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013002949) do
+ActiveRecord::Schema.define(version: 20150108022208) do
 
-  create_table "tasks", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "state"
+  create_table "boards", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tasks", force: true do |t|
+    t.text     "body"
+    t.integer  "board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status"
+  end
+
+  add_index "tasks", ["board_id"], name: "index_tasks_on_board_id"
 
 end
