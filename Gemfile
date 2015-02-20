@@ -44,4 +44,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 group :development, :test do
       gem 'rspec-rails', '~> 3.0'
+      gem 'factory_girl_rails'
+end
+
+group :tes do
+      gem 'faker'
+      gem 'capybara'
+      gem 'guard-rspec'
+      gem 'launchy'
 end
