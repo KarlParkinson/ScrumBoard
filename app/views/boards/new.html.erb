@@ -1,0 +1,12 @@
+<div class="container">
+	<%= form_for :board, url: boards_path, html: {role: "form"} do |f| %>
+		<div class="form-group">
+			<%= f.label :name, "Board Name" %>
+			<br>
+			<%= f.text_field :name, class: "form control" %>
+		</div>
+		<button type="submit" class="btn btn-default">Create</button>
+	<% end %>
+</div>
+	
+		

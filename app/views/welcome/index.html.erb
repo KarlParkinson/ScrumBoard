@@ -1,33 +1,58 @@
-<div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="masthead clearfix">
-	<div class="inner">
-	  <a href="index.html"><h3 class="masthead-brand">ScrumBoard</h3></a>
-	  
-	  <ul class="nav masthead-nav">
-	    <li>
-	      <a href="https://github.com/KarlParkinson/ScrumBoard" target="_blank"><h3 class="masthead-brand">Code</h3></a>
-	    </li>
-	  </ul>
-	</div>
-      </div>
+<%= content_for :head do %>
+	<%= stylesheet_link_tag "welcome" %>
+	<%= javascript_include_tag "popup_form"%>
+<% end %>
 
-      <div class="inner cover">
-	<h1 class="cover-heading">A Simple, Free Scrum Board.</h1>
+<%= content_for :body do %>
 	
-	<p class="lead">ScrumBoard is a simple, free Ruby on Rails application that allows you to organize any project you wish.</p>
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">ScrumBoard</h3>
+						
+						<ul class="nav masthead-nav">
+							<li>
+								<a href="https://github.com/KarlParkinson/ScrumBoard" target="_blank"><h3 class="masthead-brand">Code</h3></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="form-container" id="form-container">
+					<div class="popup-form">
+						<%= form_for :board, url: boards_path, html: {role: "form", class: "form", name: "form"} do |f| %>
+							<%= image_tag "3.png", class: "close-form-img", onclick: "div_hide()"%>
+							<h2>Create Board</h2>
+							<hr>
+							<div class="form-group">
+								<%= f.text_field :name, class: "form-control" , placeholder: "Board Name"%>
+							</div>
+							<button type="submit" class="btn btn-default form-button">Create</button>
+						<% end %>
+					</div>
+				</div>
+								
+				<div class="inner cover">
+					<h1 class="cover-heading">A Simple, Free Scrum Board.</h1>
+					
+					<p class="lead">ScrumBoard is a simple, free Ruby on Rails application that allows you to organize any project you wish.</p>
 
-	<p class="lead"><a class="btn btn-lg btn-info" href="#">Get Started</a></p>
-      </div>
+					<p class="lead">
+						<button class="btn btn-lg btn-info" onclick="div_show()">Get Started</button>
+						<!-- - <#%= link_to "Get Started", new_board_path, class: "btn btn-lg btn-info" %>-->
+					</p>
+				</div>
 
-      <div class="mastfoot">
-	<div class="inner">
-	  
-	  <p><a href="http://rubyonrails.org/" target="_blank"><small>Powered By Rails</small></a></p>
-	  
+				<div class="mastfoot">
+					<div class="inner">
+						
+						<p><a href="http://rubyonrails.org/" target="_blank"><small>Powered By Rails</small></a></p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-      </div>
-    </div>
-  </div>
-</div>
+<% end %>

@@ -12,7 +12,7 @@ describe BoardsController do
 
     it "renders the 'views/boards/index' template" do
       get :index
-      expect(response).to render_template("index")
+      expect(response).to render_template(:index)
     end
 
     it "loads all the boards" do
@@ -27,7 +27,7 @@ describe BoardsController do
 
     it "renders the 'views/boards/new' template" do
       get :new
-      expect(response).to render_template("new")
+      expect(response).to render_template(:new)
     end
 
   end
@@ -37,7 +37,7 @@ describe BoardsController do
 
     it "renders the 'board' template" do
       get :show, id: create(:board)
-      expect(response).to render_template("show")
+      expect(response).to render_template(:show)
     end
 
     it "retrieves the correct board" do
@@ -115,7 +115,7 @@ describe BoardsController do
         expect(assigns(:board)).to eq board
       end
 
-      it "changes the boards attributes" do
+      it "changes the board's attributes" do
         put :update, id: board, board: attributes_for(:board, name: "test_changed")
         board.reload
         expect(board.name).to eq "test_changed"
@@ -139,7 +139,7 @@ describe BoardsController do
      
       it "re-renders the update method" do
         put :update, id: board, board: attributes_for(:board, name: nil)
-        expect(response).to render_template(:update)
+        expect(response).to render_template(:edit)
       end
 
     end

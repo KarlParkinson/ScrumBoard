@@ -1,2 +1,35 @@
 class TasksController < ApplicationController
+
+  def create
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.create(task_params)
+    redirect_to board_path(@board)
+  end
+
+  def destroy
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+    @task.destroy
+    redirect_to board_path(@board)
+  end
+
+  def edit
+  end
+
+  def update
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+    if @task.update task_params
+      redirect_to board_path(@board)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:body, :status)
+  end
+
 end

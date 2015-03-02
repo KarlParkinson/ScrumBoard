@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :boards
   root 'welcome#index'
+  resources :boards do
+    resources :tasks, only: [:create, :destroy, :edit, :update]
+  end
   
 
   #get 'welcome/index'

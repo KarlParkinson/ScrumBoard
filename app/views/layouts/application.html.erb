@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ScrumBoard</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>ScrumBoard</title>
+		<%= stylesheet_link_tag "bootstrap.min.css"%>
+		<%= javascript_include_tag "bootstrap.min.js" %>
+		<%= yield :head %>
+		<!-- - <#%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>-->
+		<!-- -><#%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>-->
+		<!-- -<#%= csrf_meta_tags %>-->
+	</head>
+	<body>
 
-<%= yield %>
+		<%= yield :body %>
 
-</body>
+	</body>
 </html>

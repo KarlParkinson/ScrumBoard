@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  layout 'application'
 
   def index
     @boards = Board.all
@@ -9,6 +10,10 @@ class BoardsController < ApplicationController
   end
 
   def new
+  end
+
+  def edit
+    @board = Board.find(params[:id])
   end
 
   def create
@@ -31,7 +36,7 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       redirect_to @board
     else
-      render :update
+      render :edit
     end
   end
 
