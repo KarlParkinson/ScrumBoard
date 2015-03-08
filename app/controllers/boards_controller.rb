@@ -7,6 +7,9 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @todo = @board.tasks.select {|task| task.status == 'todo'}
+    @doing = @board.tasks.select {|task| task.status == 'doing'}
+    @done = @board.tasks.select {|task| task.status == 'done'}
   end
 
   def new

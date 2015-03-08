@@ -3,7 +3,15 @@ class TasksController < ApplicationController
   def create
     @board = Board.find(params[:board_id])
     @task = @board.tasks.create(task_params)
-    redirect_to board_path(@board)
+    
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to board_path(@board), notice: 'Task was saved.' }
+        format.js {}
+      else
+        format.html { redirect_to board_path(@board), notice: 'Task could not be saved.' }
+      end
+    end
   end
 
   def destroy

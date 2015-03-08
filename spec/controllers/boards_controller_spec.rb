@@ -35,15 +35,29 @@ describe BoardsController do
 
   describe "GET #show" do
 
+    let(:board) { create(:board_with_tasks) }
+
     it "renders the 'board' template" do
       get :show, id: create(:board)
       expect(response).to render_template(:show)
     end
 
     it "retrieves the correct board" do
-      board = create(:board)
+      #board = create(:board)
       get :show, id: board
       expect(assigns(:board)).to eq board
+    end
+
+    #it "retrieves the 'todo' tasks" do
+    #  get :show, id: board
+    #  todo = board.tasks.select {|task| task.status == 'todo'}
+    #  expect(assigns(:todo)).to eq todo
+    #end
+
+    it "retrieves the 'doing' tasks" do
+    end
+
+    it "retrieves the 'done' tasks'" do
     end
 
   end
