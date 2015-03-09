@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def create
     @board = Board.find(params[:board_id])
@@ -6,8 +7,8 @@ class TasksController < ApplicationController
     
     respond_to do |format|
       if @task.save
-        format.html { redirect_to board_path(@board), notice: 'Task was saved.' }
         format.js {}
+        format.html { redirect_to board_path(@board), notice: 'Task was saved.' }
       else
         format.html { redirect_to board_path(@board), notice: 'Task could not be saved.' }
       end

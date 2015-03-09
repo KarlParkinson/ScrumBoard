@@ -1,1 +1,2 @@
-$('#<%= @task.status %>').append("<%= j (render @task) %>");
+$('#<%= @task.status %>-tasks-container').append("<%= j (render @task) %>");
+$('#form-container').css("display", "none");
