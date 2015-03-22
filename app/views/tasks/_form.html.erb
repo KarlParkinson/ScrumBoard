@@ -1,0 +1,9 @@
+<%= form_for [board, board.tasks.build], html: {role: "form", class: "form", name: "form"}, remote: true do |f| %>
+	<div class="form-group">
+		<%= f.text_area :body, class: "form-control" , placeholder: "New Task" %>
+	</div>
+	<div class="radio" style="display:none;">
+		<%= f.radio_button :status, column, :checked => true %>
+	</div>
+	<button type="submit" class="btn btn-default form-button">Create</button>
+<% end %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :boards do
-    resources :tasks, only: [:create, :destroy, :edit, :update]
+    resources :tasks, only: [:create, :destroy, :edit, :update] do
+      put :sort, on: :collection
+    end
   end
   
 

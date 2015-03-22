@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
+    puts params
     @board = Board.find(params[:board_id])
     @task = @board.tasks.create(task_params)
     
@@ -25,14 +26,19 @@ class TasksController < ApplicationController
   def edit
   end
 
+  def sort
+    params[:order].each do |_, task|
+      Task.find(task[:id]).update_attribute(:priority, task[:position])
+    end
+    render :nothing => true
+  end
+
   def update
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
-    if @task.update task_params
-      redirect_to board_path(@board)
-    else
-      render :edit
-    end
+    @task.update task_params
+    @task.update task_params
+    render :nothing => true
   end
 
   private

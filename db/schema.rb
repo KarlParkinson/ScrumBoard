@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108022208) do
+ActiveRecord::Schema.define(version: 20150315002914) do
 
   create_table "boards", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150108022208) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status"
+    t.integer  "priority"
   end
 
   add_index "tasks", ["board_id"], name: "index_tasks_on_board_id"
