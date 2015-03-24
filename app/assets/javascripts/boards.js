@@ -50,4 +50,10 @@ function init() {
 	update: updateRespond,
 	connectWith: '.connected-sortable'
     }).disableSelection();
-}
+
+    $("#boards_search input").keyup(function() {
+	console.log("hello there");
+	$.get($("#boards_search").attr("action"), $("#boards_search").serialize(), null, "script");
+	return false;
+    });
+};

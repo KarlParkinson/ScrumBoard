@@ -2,7 +2,6 @@ class TasksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    puts params
     @board = Board.find(params[:board_id])
     @task = @board.tasks.create(task_params)
     

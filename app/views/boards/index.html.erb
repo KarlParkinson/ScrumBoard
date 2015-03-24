@@ -1,0 +1,25 @@
+<%= content_for :head do %>
+	<%= stylesheet_link_tag "board" %>
+<% end %>
+
+<%= content_for :body do %>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<%= form_tag boards_path, :method => 'get', :class => "navbar-form navbar-left", :role => "search", :id => "boards_search" do %>
+				<div class="form-group">
+					<%= search_field_tag :search, params[:search], :placeholder => "Board Name", :class => "form-control" %>
+				</div>
+				<%= submit_tag "Search", :class => "btn btn-default" %>
+			<% end %>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "Home", root_url %></li>
+					<li><%= link_to "Code", "https://github.com/KarlParkinson/ScrumBoard" %></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container" id="boards_region">
+		<%= render partial: "boards", locals: {boards: @boards} %>
+	</div>
+<% end %>
