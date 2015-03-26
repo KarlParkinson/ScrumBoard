@@ -56,4 +56,15 @@ function init() {
 	$.get($("#boards_search").attr("action"), $("#boards_search").serialize(), null, "script");
 	return false;
     });
+
+    $('#my-link').click(function(event) {
+	$('.square').css('display', 'none');
+	$('.form-container').css('display', 'block');
+	event.preventDefault();
+    });
+    
+    $('#close-img').click(function(event) {
+	$('.square').css('display', 'block');
+	$('.form-container').css('display', 'none');
+    });
 };
