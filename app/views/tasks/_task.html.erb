@@ -1,3 +1,9 @@
 <li class="task-list-entry" data-id="<%= task.id %>" data-cat="<%= task.status %>" pos="<%= task.priority %>">
-	<pre class="task"><%= task.body %></pre>
+	<div class="content">
+		<span class="edit-delete">
+			<%= link_to "Edit", edit_board_task_path(task.board_id, task.id), remote: true %>
+			<%= link_to "Delete", [task.board, task], remote: true, method: :delete, data: { confirm: 'Are you sure?'} %>
+		</span>
+		<pre class="task"><br><%= task.body %><br><br></pre>
+	</div>
 </li>

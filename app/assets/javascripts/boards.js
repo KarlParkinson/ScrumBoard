@@ -35,6 +35,16 @@ var updateRespond = function(event, ui) {
 	order.push({ id: $(this).attr("data-id"), position: i+1 });
     });
     updateOrder(order);
+};
+
+var mouseInTask = function() {
+    $(this).find(".edit-delete").css("display", "block");
+    //alert("Mouse In");
+}
+
+var mouseOutTask = function() {
+    $(this).find(".edit-delete").css("display", "none");
+    //alert("Mouse Out");
 }
 
 $ ( init );
@@ -59,7 +69,7 @@ function init() {
 
     $('#my-link').click(function(event) {
 	$('.square').css('display', 'none');
-	$('.form-container').css('display', 'block');
+	$('#create-board-form-container').css('display', 'block');
 	event.preventDefault();
     });
     
@@ -67,4 +77,6 @@ function init() {
 	$('.square').css('display', 'block');
 	$('.form-container').css('display', 'none');
     });
+
+    $('.task-list-entry').hover(mouseInTask, mouseOutTask);
 };

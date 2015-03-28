@@ -1,0 +1,12 @@
+//console.log("what???");
+$(".popup-form").html("<%= j (render partial: 'edit') %>");
+$(".form-container").css("display", "block");
+$("#close-img").click(function() {
+	$(".form-container").css("display", "none");
+	$(".popup-form").html("<%= j (render partial: 'boards/create') %>");
+	$("#close-img").click(function() {
+		$(".form-container").css("display", "none");
+	});
+});
+	
+//console.log("hello");

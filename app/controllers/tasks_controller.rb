@@ -18,11 +18,24 @@ class TasksController < ApplicationController
   def destroy
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
-    @task.destroy
-    redirect_to board_path(@board)
+    respond_to do |format|
+      if @task.destroy
+        format.js {}
+        format.html { redirect_to board_path(@board), notice: 'Task was deleted.' }
+      else
+        format.html { redirect_to board_path(@board), notice: 'Task was  not deleted.' }
+      end
+    end
   end
 
   def edit
+    puts params
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+    respond_to do |format|
+      format.js {}
+      format.html { redirect_to board_path(@board) }
+    end
   end
 
   def sort

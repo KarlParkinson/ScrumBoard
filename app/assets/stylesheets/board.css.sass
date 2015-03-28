@@ -26,9 +26,6 @@ body
   h3
     text-align: center
 
-.task
-  background-color: white
-
 .form
   padding-top: 15px
   button
@@ -38,12 +35,12 @@ body
 .form-container
   width: 100%
   height: 100%
-  opacity: 0.99
+  opacity: 0.90
   top: 0
   left: 0
   display: none
   position: fixed
-  background-color: #313131
+  background-color: #dddddd
   overflow: auto
 
 .popup-form
@@ -51,6 +48,7 @@ body
   left: 54%
   top: 30%
   margin-left: -202px
+//  opacity: 1.0
 
 .create-form
   max-width: 350px
@@ -72,6 +70,24 @@ body
 .task-list
   list-style-type: none
   padding: 15px 15px 0 0
+
+.content
+  position: relative
+  width: 490px
+  .edit-delete
+    //float: right
+    display: none
+    position: absolute
+    top: 0px
+    right: 0px
+  .task
+    background-color: white
+    white-space: pre-wrap
+    white-space: -moz-pre-wrap
+    white-space: -pre-wrap
+    white-space: -o-pre-wrap
+    word-wrap: break-word
+
 
 .square
   width: 205px
