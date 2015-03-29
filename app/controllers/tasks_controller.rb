@@ -3,7 +3,9 @@ class TasksController < ApplicationController
 
   def create
     @board = Board.find(params[:board_id])
+    new_task_pos = @board.tasks.select {|task| task.status == params[:task][:status]}.length + 1
     @task = @board.tasks.create(task_params)
+    @task.priority = new_task_pos
     
     respond_to do |format|
       if @task.save
