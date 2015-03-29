@@ -1,3 +1,4 @@
 $('#<%= @task.status %>-tasks-container').append("<%= j (render @task) %>");
 $('#task-body-<%= @task.status %>').val('');
-$('.task-list-entry').hover(mouseInTask, mouseOutTask);
+//$('.task-list-entry').hover(mouseInTask, mouseOutTask);
+mouseHoverBind();

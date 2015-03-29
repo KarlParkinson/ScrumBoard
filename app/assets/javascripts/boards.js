@@ -26,7 +26,6 @@ var updateRespond = function(event, ui) {
 	ui.item.attr("data-cat", columnStatus);
 	taskId = ui.item.attr("data-id");
 	taskBody = ui.item.find(".task").text();
-//	console.log(ui.item);
 	console.log(taskBody);
 	updateTaskStatus(taskId, taskBody, columnStatus);
     }
@@ -41,12 +40,29 @@ var updateRespond = function(event, ui) {
 
 var mouseInTask = function() {
     $(this).find(".edit-delete").css("display", "block");
-    //alert("Mouse In");
 }
 
 var mouseOutTask = function() {
     $(this).find(".edit-delete").css("display", "none");
-    //alert("Mouse Out");
+}
+
+var mouseHoverBind = function() {
+    $('.task-list-entry').hover(mouseInTask, mouseOutTask);
+}
+
+var closePopUpForm = function() {
+    $('.form-container').css('display', 'none');
+}
+
+var showPopUpForm = function() {
+    $(".form-container").css("display", "block");
+}
+
+var closeImgBind = function() {
+    $('#close-img').click(function(event) {
+	$('.square').css('display', 'block');
+	closePopUpForm();
+    });
 }
 
 $ ( init );
@@ -71,7 +87,7 @@ function init() {
     $('#my-link').click(function(event) {
 	$('.square').css('display', 'none');
 	$('#board-name').val('');
-	$('#create-board-form-container').css('display', 'block');
+	showPopUpForm();
 	event.preventDefault();
     });
     
@@ -80,7 +96,7 @@ function init() {
 	$('.form-container').css('display', 'none');
     });
 
-    $('.task-list-entry').hover(mouseInTask, mouseOutTask);
+    mouseHoverBind();
 
     $('#search-field').val('');
 };

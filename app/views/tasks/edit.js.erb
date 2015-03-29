@@ -1,12 +1,7 @@
-//console.log("what???");
 $(".popup-form").html("<%= j (render partial: 'edit') %>");
-$(".form-container").css("display", "block");
+showPopUpForm();
 $("#close-img").click(function() {
-	$(".form-container").css("display", "none");
+	closePopUpForm();
 	$(".popup-form").html("<%= j (render partial: 'boards/create') %>");
-	$("#close-img").click(function() {
-		$(".form-container").css("display", "none");
-	});
+	closeImgBind();
 });
-	
-//console.log("hello");
