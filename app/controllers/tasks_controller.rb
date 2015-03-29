@@ -29,7 +29,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-    puts params
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     respond_to do |format|
@@ -48,11 +47,18 @@ class TasksController < ApplicationController
   def update
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
-    @task.update task_params
-    @task.update task_params
-    render :nothing => true
+    respond_to do |format|
+      if @task.update task_params
+        format.js {}
+        format.html { redirect_to board_path(@board) }
+      else
+        format.html { redirect_to board_path(@board), notice: 'Task was not updated.' }
+      end
+      
+      #render :nothing => true
+    end
   end
-
+    
   private
 
   def task_params

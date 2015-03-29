@@ -25,7 +25,9 @@ var updateRespond = function(event, ui) {
     if (taskStatus != columnStatus) {
 	ui.item.attr("data-cat", columnStatus);
 	taskId = ui.item.attr("data-id");
-	taskBody = ui.item.children().text();
+	taskBody = ui.item.find(".task").text();
+//	console.log(ui.item);
+	console.log(taskBody);
 	updateTaskStatus(taskId, taskBody, columnStatus);
     }
  
@@ -62,13 +64,13 @@ function init() {
     }).disableSelection();
 
     $("#boards_search input").keyup(function() {
-	console.log("hello there");
 	$.get($("#boards_search").attr("action"), $("#boards_search").serialize(), null, "script");
 	return false;
     });
 
     $('#my-link').click(function(event) {
 	$('.square').css('display', 'none');
+	$('#board-name').val('');
 	$('#create-board-form-container').css('display', 'block');
 	event.preventDefault();
     });
@@ -79,4 +81,6 @@ function init() {
     });
 
     $('.task-list-entry').hover(mouseInTask, mouseOutTask);
+
+    $('#search-field').val('');
 };

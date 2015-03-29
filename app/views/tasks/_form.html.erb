@@ -1,6 +1,6 @@
 <%= form_for [board, board.tasks.build], html: {role: "form", class: "form", name: "form"}, remote: true do |f| %>
 	<div class="form-group">
-		<%= f.text_area :body, class: "form-control" , placeholder: "New Task" %>
+		<%= f.text_area :body, class: "form-control" , id: "task-body-#{column}", placeholder: "New Task" %>
 	</div>
 	<div class="radio" style="display:none;">
 		<%= f.radio_button :status, column, :checked => true %>
