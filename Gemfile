@@ -43,14 +43,20 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+# manage api keys
+gem 'dotenv-rails', :groups => [:development, :test]
+
+# google auth
+gem 'omniauth-google-oauth2', '~> 0.2.1'
+
 group :development, :test do
-      gem 'rspec-rails', '~> 3.0'
-      gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
 end
 
-group :tes do
-      gem 'faker'
-      gem 'capybara'
-      gem 'guard-rspec'
-      gem 'launchy'
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
