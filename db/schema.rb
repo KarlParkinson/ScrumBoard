@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315002914) do
+ActiveRecord::Schema.define(version: 20150405035201) do
 
   create_table "boards", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uid"
   end
 
   create_table "tasks", force: true do |t|
@@ -29,5 +30,15 @@ ActiveRecord::Schema.define(version: 20150315002914) do
   end
 
   add_index "tasks", ["board_id"], name: "index_tasks_on_board_id"
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

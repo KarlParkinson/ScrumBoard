@@ -2,18 +2,26 @@ class BoardsController < ApplicationController
   layout 'application'
 
   def index
-    if params[:search]
-      @boards = Board.search(params[:search]).order("created_at DESC")
+    if logged_in?
+      if params[:search]
+        @boards = Board.search(params[:search]).where("uid = ?", current_user.uid).order("created_at DESC")
+      else
+        @boards = Board.where("uid = ?", current_user.uid).order("created_at DESC")
+      end
     else
-      @boards = Board.all.order("created_at DESC")
+      redirect_to root_path, :flash => { :error => "Please Log In" }
     end
   end
 
   def show
-    @board = Board.find(params[:id])
-    @todo = @board.tasks.select {|task| task.status == 'todo'}
-    @doing = @board.tasks.select {|task| task.status == 'doing'}
-    @done = @board.tasks.select {|task| task.status == 'done'}
+    if logged_in?
+      @board = Board.find(params[:id])
+      @todo = @board.tasks.select {|task| task.status == 'todo'}
+      @doing = @board.tasks.select {|task| task.status == 'doing'}
+      @done = @board.tasks.select {|task| task.status == 'done'}
+    else
+      redirect_to root_path, :flash => { :error => "Please Log In" }
+    end
   end
 
   def new
@@ -50,7 +58,11 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name)
+    params.require(:board).permit(:name).merge({"uid" => current_user.uid})
+  end
+
+  def logged_in?
+    current_user
   end
 
 end
