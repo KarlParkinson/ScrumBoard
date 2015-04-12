@@ -1,0 +1,7 @@
+$(".popup-form").html("<%= j (render partial: 'update', locals: { board: @board }) %>");
+showPopUpForm();
+$(".close-form-img").click(function() {
+	closePopUpForm();
+	$(".popup-form").html("<%= j (render partial: 'create') %>");
+	closeImgBind();
+});

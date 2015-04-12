@@ -59,7 +59,7 @@ var showPopUpForm = function() {
 }
 
 var closeImgBind = function() {
-    $('#close-img').click(function(event) {
+    $('close-form-img').click(function(event) {
 	$('.square').css('display', 'block');
 	closePopUpForm();
     });
@@ -84,14 +84,14 @@ function init() {
 	return false;
     });
 
-    $('#my-link').click(function(event) {
+    $('#new-board-link').click(function(event) {
 	$('.square').css('display', 'none');
 	$('#board-name').val('');
 	showPopUpForm();
 	event.preventDefault();
     });
-    
-    $('#close-img').click(function(event) {
+
+    $('.close-form-img').click(function(event) {
 	$('.square').css('display', 'block');
 	$('.form-container').css('display', 'none');
     });

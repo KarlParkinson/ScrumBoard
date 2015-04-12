@@ -1,0 +1,4 @@
+$("#board-name").html("<%= @board.name %>");
+closePopUpForm();
+$(".popup-form").html("<%= j (render partial: 'create') %>");
+closeImgBind();

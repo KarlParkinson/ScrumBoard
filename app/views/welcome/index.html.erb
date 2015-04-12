@@ -3,7 +3,7 @@
 <% end %>
 
 <%= content_for :body do %>
-	
+
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
 			<div class="cover-container">
@@ -46,4 +46,11 @@
 			</div>
 		</div>
 	</div>
+
+	<% if flash[:message] %>
+		<script>
+		alert("<%= flash[:message] %>");
+		</script>
+	<% end %>
+	
 <% end %>

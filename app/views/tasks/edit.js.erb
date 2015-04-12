@@ -1,6 +1,6 @@
 $(".popup-form").html("<%= j (render partial: 'edit') %>");
 showPopUpForm();
-$("#close-img").click(function() {
+$(".close-form-img").click(function() {
 	closePopUpForm();
 	$(".popup-form").html("<%= j (render partial: 'boards/create') %>");
 	closeImgBind();

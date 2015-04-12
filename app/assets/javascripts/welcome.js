@@ -9,3 +9,7 @@ function init() {
 	$('.form-container').css('display', 'none');
     });
 };
+
+function message(m) {
+    alert(m);
+};

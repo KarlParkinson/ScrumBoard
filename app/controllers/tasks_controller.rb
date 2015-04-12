@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
+    check_login
     @board = Board.find(params[:board_id])
     new_task_pos = @board.tasks.select {|task| task.status == params[:task][:status]}.length + 1
     @task = @board.tasks.create(task_params)
@@ -18,6 +19,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    check_login
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     respond_to do |format|
@@ -31,11 +33,12 @@ class TasksController < ApplicationController
   end
 
   def edit
+    check_login
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     respond_to do |format|
       format.js {}
-      format.html { redirect_to board_path(@board) }
+      format.html {}
     end
   end
 
@@ -47,6 +50,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    check_login
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     respond_to do |format|
@@ -56,8 +60,6 @@ class TasksController < ApplicationController
       else
         format.html { redirect_to board_path(@board), notice: 'Task was not updated.' }
       end
-      
-      #render :nothing => true
     end
   end
     

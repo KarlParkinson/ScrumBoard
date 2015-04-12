@@ -8,6 +8,12 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    reset_session
+    if flash[:expired]
+      flash[:message] = "Login expired. Please login again to keep working."
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 end
