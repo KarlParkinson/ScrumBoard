@@ -4,6 +4,7 @@ require 'faker'
 FactoryGirl.define do
   factory :board do
     name { Faker::App.name }
+    uid "MyString"
 
     factory :board_with_tasks do
 

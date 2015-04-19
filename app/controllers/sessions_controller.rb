@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     reset_session
-    user = User.from_omniauth(env["omniauth.auth"])
+    user = User.from_omniauth(request.env["omniauth.auth"])
     session[:user_id] = user.id
     redirect_to boards_path
   end

@@ -10,6 +10,10 @@ describe Board do
     expect(build(:board, name: nil)).to_not be_valid
   end
 
+  it "is invalid without a uid" do
+    expect(build(:board, uid: nil)).to_not be_valid
+  end
+
   it "should destroy associated tasks" do
     board = create(:board_with_tasks)
     tasks = board.tasks

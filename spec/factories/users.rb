@@ -1,10 +1,19 @@
 FactoryGirl.define do
-  factory :user do
+
+  factory :valid_user_login, class: User do
     provider "MyString"
-uid "MyString"
-name "MyString"
-oauth_token "MyString"
-oauth_expires_at "2015-04-04 21:29:45"
+    uid "MyString"
+    name "MyString"
+    oauth_token "MyString"
+    oauth_expires_at (Time.now + 3600)
+  end
+
+  factory :invalid_user_login, class: User do
+    provider "MyString"
+    uid "MyString"
+    name "MyString"
+    oauth_token "MyString"
+    oauth_expires_at (Time.now - 3600)
   end
 
 end

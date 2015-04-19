@@ -26,6 +26,21 @@ require 'factory_girl_rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+OmniAuth.config.test_mode = true
+omniauth_hash = {
+  'provider' => 'google_oauth2',
+  'uid' => 'abcde345',
+  'info' => {
+    'name' => 'Het Masteen'
+  },
+  'credentials' => {
+    'token' => 'ahdjdfdh567dsfhdsj',
+    'expires_at' => Time.now + 3600
+  }
+}
+OmniAuth.config.add_mock(:google_oauth2, omniauth_hash)
+  
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
