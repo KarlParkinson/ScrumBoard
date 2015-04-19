@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def valid_login?
-    !current_user.oauth_expires_at.past?
+    if current_user
+      !current_user.oauth_expires_at.past?
+    else
+      false
+    end
   end
 
 end

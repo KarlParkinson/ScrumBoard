@@ -38,17 +38,21 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     respond_to do |format|
       format.js {}
-      format.html { redirect_to board_path(@board) }
+      format.html {}
     end
   end
 
   def create
     if valid_login?
       @board = Board.new(board_params)
-      if @board.save
-        redirect_to @board
-      else
-        render :new
+      respond_to do |format|
+        if @board.save
+          format.js {}
+          format.html { redirect_to @board }
+        else
+          format.js { render :new }
+          format.html { render :new }
+        end
       end
     else
       flash[:expired] = true

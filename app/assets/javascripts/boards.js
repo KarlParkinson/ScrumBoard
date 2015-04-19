@@ -51,10 +51,12 @@ var mouseHoverBind = function() {
 }
 
 var closePopUpForm = function() {
+    $('.square').css('display', 'block');
     $('.form-container').css('display', 'none');
 }
 
 var showPopUpForm = function() {
+    $('.square').css('display', 'none');
     $(".form-container").css("display", "block");
 }
 
@@ -82,13 +84,6 @@ function init() {
     $("#boards_search input").keyup(function() {
 	$.get($("#boards_search").attr("action"), $("#boards_search").serialize(), null, "script");
 	return false;
-    });
-
-    $('#new-board-link').click(function(event) {
-	$('.square').css('display', 'none');
-	$('#board-name').val('');
-	showPopUpForm();
-	event.preventDefault();
     });
 
     $('.close-form-img').click(function(event) {
