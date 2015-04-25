@@ -1,15 +1,9 @@
 <%= form_for :board, url: boards_path, remote: true, html: {role: "form", class: "board-form", name: "form"} do |f| %>
 	<%= image_tag "3.png", class: "close-form-img", id: "close-img"%>
-	<% if !current_user %>
-		<h2>Log In</h2>
-		<hr>
-		<%= link_to "Sign In With Google", "/auth/google_oauth2", class: "btn btn-default form-button" %>
-	<% else %>
-		<h2>Create Board</h2>
-		<hr>
-		<div class="form-group">
-			<%= f.text_field :name, class: "form-control", id: "board-name", placeholder: "Board Name"%>
-		</div>
-		<button type="submit" class="btn btn-default form-button">Create</button>
-	<% end %>
+	<h2>Create Board</h2>
+	<hr>
+	<div class="form-group">
+		<%= f.text_field :name, class: "form-control", id: "board-name", placeholder: "Board Name"%>
+	</div>
+	<button type="submit" class="btn btn-default form-button">Create</button>
 <% end %>

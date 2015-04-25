@@ -72,7 +72,6 @@ class TasksController < ApplicationController
         else
           format.js { render :edit }
           format.html { render :edit }
-       #   format.html { redirect_to board_path(@board), notice: 'Task was not updated.' }
         end
       end
     else

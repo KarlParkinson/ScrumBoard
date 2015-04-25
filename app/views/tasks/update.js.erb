@@ -1,4 +1,7 @@
-$("#<%= @task.status %>-tasks-container").find("[data-id|='<%= @task.id %>']").html("<%= j (render @task) %>");
+var task = $("#<%= @task.status %>-tasks-container").find("[data-id|='<%= @task.id %>']");
+task.attr("data-cat", "<%= @task.status %>");
+task.attr("pos", "<%= @task.priority %>");
+$("#<%= @task.id %>-body-div").html("<%= j (render partial: 'task_body', locals: {task: @task}) %>");
 closePopUpForm();
 $(".popup-form").html("<%= j (render partial: 'boards/create') %>");
 closeImgBind();

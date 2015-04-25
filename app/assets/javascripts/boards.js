@@ -26,7 +26,6 @@ var updateRespond = function(event, ui) {
 	ui.item.attr("data-cat", columnStatus);
 	taskId = ui.item.attr("data-id");
 	taskBody = ui.item.find(".task").text();
-	console.log(taskBody);
 	updateTaskStatus(taskId, taskBody, columnStatus);
     }
  
