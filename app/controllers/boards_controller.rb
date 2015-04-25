@@ -17,10 +17,14 @@ class BoardsController < ApplicationController
 
   def show
     if valid_login?
-      @board = Board.find(params[:id])
-      @todo = @board.tasks.select {|task| task.status == 'todo'}
-      @doing = @board.tasks.select {|task| task.status == 'doing'}
-      @done = @board.tasks.select {|task| task.status == 'done'}
+      if owns_board(params[:id])
+        @board = Board.find(params[:id])
+        @todo = @board.tasks.select {|task| task.status == 'todo'}
+        @doing = @board.tasks.select {|task| task.status == 'doing'}
+        @done = @board.tasks.select {|task| task.status == 'done'}
+      else
+        redirect_to boards_path
+      end
     else
       flash[:expired] = true
       redirect_to signout_path

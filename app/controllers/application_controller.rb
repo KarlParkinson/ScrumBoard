@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def owns_board(board_id)
+    board = Board.find(board_id)
+    current_user.uid == board.uid
+  end
 end

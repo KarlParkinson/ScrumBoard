@@ -16,4 +16,11 @@ FactoryGirl.define do
     oauth_expires_at (Time.now - 3600)
   end
 
+  factory :wrong_user, class: User do
+    provider "MyString"
+    uid "SomethingDifferent"
+    name "MyString"
+    oauth_token "MyString"
+    oauth_expires_at (Time.now + 3600)
+  end
 end

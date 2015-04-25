@@ -88,6 +88,17 @@ describe BoardsController do
       end
     end
 
+    context "does not own board" do
+      
+      let(:board) { create(:board_with_tasks) }
+      let(:wrong_user) { create(:wrong_user) }
+
+      it "redirects back to the index page" do
+        get :show, {:id => board}, {:user_id => wrong_user.id}
+        expect(response).to redirect_to(boards_path)
+      end
+    end
+
     context "invalid user login" do
       it "redirects back to signout path" do
         get :show, {:id => ""}, {:user_id => invalid_user.id}
