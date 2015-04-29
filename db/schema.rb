@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150405035201) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "boards", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150405035201) do
     t.integer  "priority"
   end
 
-  add_index "tasks", ["board_id"], name: "index_tasks_on_board_id"
+  add_index "tasks", ["board_id"], name: "index_tasks_on_board_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider"
