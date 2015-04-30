@@ -7,6 +7,7 @@ Currently resides at https://peaceful-reaches-8323.herokuapp.com/
 ### Host Yourself
 #### Dependencies
 Currently configured to run on postgresql because that's what Heroku requires. I developed using sqlite though.
+Developed on rails 4.1.6 and ruby 2.2.0. I make no promises for how it will behave on other versions.
 ##### Steps
 1. Clone repo
 2. ``` bundle install ```
