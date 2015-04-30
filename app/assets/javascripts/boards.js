@@ -47,7 +47,6 @@ var mouseOutTask = function() {
 
 var mouseHoverBind = function() {
     $('.task-list-entry').hover(mouseInTask, mouseOutTask);
-    console.log("mouse in and out bound");
 }
 
 var closePopUpForm = function() {
