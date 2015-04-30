@@ -46,7 +46,6 @@ var mouseOutTask = function() {
 }
 
 var mouseHoverBind = function() {
-    console.log("binding mouse in and out");
     $('.task-list-entry').hover(mouseInTask, mouseOutTask);
     console.log("mouse in and out bound");
 }
@@ -71,7 +70,6 @@ var closeImgBind = function() {
 $ ( init );
 
 function init() {
-    console.log("drag and sortable");
     $('.draggable').draggable({
 	containment: '.flex-container',
 	cursor: 'move',
@@ -82,12 +80,9 @@ function init() {
 	update: updateRespond,
 	connectWith: '.connected-sortable'
     }).disableSelection();
-    console.log("dragged and sorted");
 
-    console.log("binding key up");
     $("#boards_search input").keyup(function() {
 	$.get($("#boards_search").attr("action"), $("#boards_search").serialize(), null, "script");
-	console.log("key up bound");
 	return false;
     });
 
