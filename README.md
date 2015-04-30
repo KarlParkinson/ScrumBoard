@@ -14,7 +14,7 @@ Developed on rails 4.1.6 and ruby 2.2.0. I make no promises for how it will beha
 3. ``` rake db:migrate ```
 4. It's a Rails app, so launch with `rails server`
 
-To run the test simply do `rake spec`
+To run the tests simply do `rake spec`
 The current server is just the default (webrick). Feel free to use whatever you like (thin, unicorn, ... etc).
 
 ### Contributing
