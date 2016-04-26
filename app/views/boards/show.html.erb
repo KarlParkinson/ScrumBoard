@@ -12,6 +12,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to "Home", root_url %></li>
 					<li><%= link_to "Rename", edit_board_path,  remote: true %></li>
+					<li><%= link_to "Delete", board_path(@board), method: :delete, data: { confirm: 'Are you sure?'} %></li>
 					<li><%= link_to "Code", "https://github.com/KarlParkinson/ScrumBoard" %></li>
 					<li><%= link_to "New", new_board_path, remote: true %></li>
 					<li><%= link_to "Boards", boards_path %></li>
