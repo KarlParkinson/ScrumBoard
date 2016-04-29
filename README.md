@@ -18,4 +18,4 @@ To run the tests simply do `rake spec`
 The current server is just the default (webrick). Feel free to use whatever you like (thin, unicorn, ... etc).
 
 ### Contributing
-To be honest, I have given it much thought. I made this mostly as an exercise to learn Rails, css, and some basic Javascript stuff. If you feel something is wrong or could be improved, open an issue. Or just fork it, make the change yourself, and submit a pull request.
+To be honest, I haven't given it much thought. I made this mostly as an exercise to learn Rails, css, and some basic Javascript stuff. If you feel something is wrong or could be improved, open an issue. Or just fork it, make the change yourself, and submit a pull request.
